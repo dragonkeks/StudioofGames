@@ -1,0 +1,170 @@
+[
+  {
+    "id": "demo-geo-01",
+    "category": "Geografie",
+    "text": "Welches afrikanische Land ist vollständig von Südafrika umgeben?",
+    "answer": "Lesotho"
+  },
+  {
+    "id": "demo-geo-02",
+    "category": "Geografie",
+    "text": "Welches südamerikanische Land hat Niederländisch als Amtssprache?",
+    "answer": "Suriname"
+  },
+  {
+    "id": "demo-geo-03",
+    "category": "Geografie",
+    "text": "Wie heißt der tiefste See der Erde?",
+    "answer": "Baikalsee"
+  },
+  {
+    "id": "demo-geo-04",
+    "category": "Geografie",
+    "text": "Welches afrikanische Land hat die Hauptstadt Windhoek?",
+    "answer": "Namibia"
+  },
+  {
+    "id": "demo-ges-01",
+    "category": "Geschichte",
+    "text": "Welcher Krieg endete 1648 mit dem Westfälischen Frieden?",
+    "answer": "Dreißigjähriger Krieg"
+  },
+  {
+    "id": "demo-ges-02",
+    "category": "Geschichte",
+    "text": "In welchem Jahr eroberten die Osmanen Konstantinopel?",
+    "answer": "1453"
+  },
+  {
+    "id": "demo-ges-03",
+    "category": "Geschichte",
+    "text": "Wie hieß das Schiff, mit dem 1620 englische Siedler nach Nordamerika segelten?",
+    "answer": "Mayflower"
+  },
+  {
+    "id": "demo-ges-04",
+    "category": "Geschichte",
+    "text": "Welcher sowjetische Kosmonaut flog 1961 als erster Mensch ins Weltall?",
+    "answer": "Juri Gagarin"
+  },
+  {
+    "id": "demo-spr-01",
+    "category": "Sprachen",
+    "text": "Wie nennt man ein Wort, das vorwärts und rückwärts gleich gelesen wird?",
+    "answer": "Palindrom"
+  },
+  {
+    "id": "demo-spr-02",
+    "category": "Sprachen",
+    "text": "Wie heißt das Stilmittel einer bewussten starken Übertreibung?",
+    "answer": "Hyperbel"
+  },
+  {
+    "id": "demo-spr-03",
+    "category": "Sprachen",
+    "text": "Was bedeutet das französische Wort Déjà-vu wörtlich?",
+    "answer": "Schon gesehen"
+  },
+  {
+    "id": "demo-spr-04",
+    "category": "Sprachen",
+    "text": "Wie heißt das Stilmittel gleicher Anfangslaute in aufeinanderfolgenden Wörtern?",
+    "answer": "Alliteration"
+  },
+  {
+    "id": "demo-pol-01",
+    "category": "Politik",
+    "text": "Welches Gremium wählt den deutschen Bundespräsidenten?",
+    "answer": "Bundesversammlung"
+  },
+  {
+    "id": "demo-pol-02",
+    "category": "Politik",
+    "text": "Wie viele Jahre dauert die reguläre Amtszeit des deutschen Bundespräsidenten?",
+    "answer": "5 Jahre"
+  },
+  {
+    "id": "demo-pol-03",
+    "category": "Politik",
+    "text": "Wie viele ständige Mitglieder hat der UN-Sicherheitsrat?",
+    "answer": "5"
+  },
+  {
+    "id": "demo-pol-04",
+    "category": "Politik",
+    "text": "Wie viele Sterne befinden sich auf der Flagge der Europäischen Union?",
+    "answer": "12"
+  },
+  {
+    "id": "demo-spo-01",
+    "category": "Sport",
+    "text": "Welches Land gewann die Fußball-Europameisterschaft der Männer 2004?",
+    "answer": "Griechenland"
+  },
+  {
+    "id": "demo-spo-02",
+    "category": "Sport",
+    "text": "Wer gewann 2016 die Formel-1-Fahrerweltmeisterschaft und trat anschließend zurück?",
+    "answer": "Nico Rosberg"
+  },
+  {
+    "id": "demo-spo-03",
+    "category": "Sport",
+    "text": "Wie viele Punkte hat ein Maximum Break beim Snooker?",
+    "answer": "147"
+  },
+  {
+    "id": "demo-spo-04",
+    "category": "Sport",
+    "text": "Wie viele Punkte ist ein Touchdown im American Football wert?",
+    "answer": "6"
+  },
+  {
+    "id": "demo-nat-01",
+    "category": "Naturwissenschaften",
+    "text": "Welches chemische Element hat das Symbol W?",
+    "answer": "Wolfram"
+  },
+  {
+    "id": "demo-nat-02",
+    "category": "Naturwissenschaften",
+    "text": "Wie heißt der direkte Übergang von einem festen in den gasförmigen Zustand?",
+    "answer": "Sublimation"
+  },
+  {
+    "id": "demo-nat-03",
+    "category": "Naturwissenschaften",
+    "text": "In welcher Einheit wird der elektrische Widerstand gemessen?",
+    "answer": "Ohm"
+  },
+  {
+    "id": "demo-nat-04",
+    "category": "Naturwissenschaften",
+    "text": "Welches Gas macht ungefähr 78 Prozent der Erdatmosphäre aus?",
+    "answer": "Stickstoff"
+  },
+  {
+    "id": "demo-fil-01",
+    "category": "Film & Fernsehen",
+    "text": "Welchen Decknamen verwendet Walter White in Breaking Bad?",
+    "answer": "Heisenberg"
+  },
+  {
+    "id": "demo-fil-02",
+    "category": "Film & Fernsehen",
+    "text": "Wie heißt das Büro-Unternehmen in der US-Serie The Office?",
+    "answer": "Dunder Mifflin"
+  },
+  {
+    "id": "demo-fil-03",
+    "category": "Film & Fernsehen",
+    "text": "Wie heißt der Wüstenplanet in Dune?",
+    "answer": "Arrakis"
+  },
+  {
+    "id": "demo-fil-04",
+    "category": "Film & Fernsehen",
+    "text": "Welcher südkoreanische Film gewann 2020 den Oscar für den besten Film?",
+    "answer": "Parasite"
+  }
+]

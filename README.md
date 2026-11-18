@@ -1,97 +1,86 @@
-# SHOWSTUDIO – Gameshow-Baukasten (Beta 1)
+# SHOWSTUDIO – Beta 1.1 (Grundregeln)
 
-**Aus MÁLAGA GAMES entstanden.** Diese App ist ein *neues, separates* Projekt. Deine bisherige Website unter `dragonkeks.github.io/malaga-games/` und deren Firebase-Daten bleiben unverändert.
+**Eigenständige Web-App auf Basis von SHOWSTUDIO Beta 1.0.** MÁLAGA GAMES bleibt unverändert. Die Beta 1.1 baut auf den bestehenden Dateien und der bekannten GitHub-Pages-/Firebase-Struktur auf.
 
-## Was in dieser ersten Version funktioniert
+## Das ist in Beta 1.1 umgesetzt
 
-- **Show-Bibliothek:** neue Shows erstellen, bearbeiten, duplizieren, löschen, lokal speichern und als JSON exportieren/importieren.
-- **Show-Builder:** Titel, Untertitel, vier Designs, zwei bis sechs Teams, Wertungsmodus (Siegbonus / direkte Spielpunkte / gemischt), optionales Münzsystem.
-- **Spielplan:** beliebig viele Spiele bis zu 50 hinzufügen, sortieren und entfernen; sieben Grundmodule (Quiz, Multiple Choice, Schätzen, Musik/Medien, Challenge, Sammelkarten, Risiko).
-- **Regeln je Spiel:** eigene Sieg- und Antwortpunkte, Strafpunkte, Münzen pro richtige Antwort oder Sieg, Antwortmodus, Timer-Wert als Einstellung, Fragenpool, Aufgaben, Mediendatei-URL.
-- **Moderation:** Fragen aufrufen, Lösungen einblenden, Buzzer freischalten, Eingaben lesen, Antworten auf TV einblenden, manuell werten, Kategoriesieg vergeben und letzte Aktionen rückgängig machen.
-- **TV-Ansicht und Handyansicht:** separate Links. **Lokal** synchronisiert sich die Show zwischen Tabs desselben Browsers; **Firebase** kann nach sicherer Einrichtung verschiedene Geräte verbinden.
-- **Spielstände:** bleiben lokal erhalten und können später fortgesetzt werden. Templates können wiederholt gespielt werden.
-- **Import alter Fragen:** Eine mit MÁLAGA GAMES V4 als JSON exportierte Sicherung wird zu einer neuen Vorlage. Vorhandene alte Spielstände werden *nicht* übernommen oder überschrieben.
+- **Show-Builder / Grundregeln:** Teilnahmeformat Teams, Einzelspieler oder gemischt, maximal vier Parteien; Moderator immer separat. Gesamtpunktesystem (nur Siegpunkte / direkte Spielpunkte / Kombination), Münzen an/aus, standardisierte Antwortzeit und Buzzersperre, TV-Übergänge.
+- **Teambildung:** außerhalb der App, manuell, zufällig, Auslosungsquiz oder Kategorie-Rad mit Auslosungsfrage. Bei richtiger Antwort wird die antwortende Person dem derzeit möglichst kleinen Team zugeteilt. Einzelspieler-Parteien sind auf eine zugeteilte Person begrenzt. Teamzusammensetzung wird beim Start fixiert.
+- **Spielregeln:** Punktwerte, Münzen für Gewinner oder alle bzw. freie Moderator-Vergabe, wählbare Spielende-Art (manuell, Fragenanzahl, Punktziel, Spielzeit), Gleichstand an/aus und Entscheidungs-Schätzfrage unter den punktgleichen führenden Parteien.
+- **Fragenregeln:** Eigene Zeitlimits und Buzzersperren je Frage; ein leeres Feld übernimmt den Standard des Spiels bzw. der Show. Frage ist zunächst nur dem Moderator bekannt; er gibt sie ausdrücklich für TV/Handys frei.
+- **Live-Regie:** Automatische Antwortöffnung und Timer bei Freigabe optional; Antworten und Buzzer schließen nach Timerablauf. Unabhängig davon sind manuelle Start-, Öffnen-, Schließen-, Auflösen- und Rückgängig-Befehle möglich.
+- **Geheimfinale als vorbereiteter Baustein:** Externes JSON-Fragenpaket **lokal** importieren; Kategorien und Anzahl je Finale festlegen; zufällige Auswahl ohne Wiederholung innerhalb derselben Show-Sitzung. Die Antwort ist im üblichen Moderatorbildschirm bis zur Auflösung verborgen. Der Moderator kann als **Finalgegner ohne regulären Teamplatz** eine Antwort einreichen. Eine vollständig automatisierte Münzfinale-Wertung ist **noch nicht** implementiert.
+- **Darstellung:** Einige kleinere Änderungen an Kopfzeile/Seitenleiste, sanfte TV-Übergänge und verbesserte Handybuzzer-Bedienung gegen Scrollen/versehentliches Verschieben.
+- **Migrationsschutz:** Einmalige Kopie der bisherigen lokalen Vorlagen im Browser unter `showstudio:v1:backup-before-beta11`, bevor Daten auf vier Parteien normalisiert werden.
 
-**Wichtige Grenzen von Beta 1:** Dies ist **kein** vollständiger Ersatz für jede Spezialmechanik der alten MÁLAGA GAMES. Manche Spiele wie Padel-Tic-Tac-Toe werden zunächst als frei moderierbare Challenges übernommen. Der Timer-Wert ist konfigurierbar, aber noch keine automatisierte Countdown-/Soundshow. Für Medien werden **direkte HTTPS-Links** zu Bild-, Audio- oder Videodateien genutzt; lokale MP3-/Videodateien und YouTube-/Spotify-Seitenlinks sind im neuen Builder noch nicht als Dateiupload oder Player integriert. Ein Münz-Shop, automatische Team-Matchmaking-Regeln und ein vollständig allgemeiner Regel-Editor sind Folgeversionen. Eine produktive Firebase-Liveshow sollte erst nach ausführlichem Geräte- und Sicherheitstest stattfinden.
+## Grenzen der Beta 1.1
 
-## Schnellstart ohne Installation (GitHub Pages)
+**Die ersten Showformate sind noch nicht umgesetzt.** Der neue Tab „Gameshow“ zeigt die geplanten Formate als Vorschau; nur **Freie Gameshow** ist aktiv. Besondere Mechaniken wie das originale oder das Mehrparteien-Münzfinale, Gewinnleitern, Jokersysteme, automatisch erkannte uneinholbare Gesamtsiege und umfassende Show-Automation folgen beim Ausbau einzelner Showformate. Bei den Spielende-Regeln zeigt das Regiepult momentan an, wann ein Punktziel, eine Fragenzahl oder eine Spieldauer erfüllt wurde; der Moderator **bestätigt den Gewinner weiterhin ausdrücklich**. Das verhindert zu frühe Abbrüche, bevor Antworten ausgewertet wurden.
 
-1. Erstelle ein **neues** öffentliches GitHub-Repository, z. B. `showstudio` – bitte **nicht** dein funktionierendes `malaga-games`-Repository ersetzen.
-2. Entpacke die ZIP-Datei.
-3. Lade die Dateien **aus dem ZIP-Hauptordner** über **Add file → Upload files** hoch. `index.html` muss im Repository-Hauptverzeichnis liegen.
-4. Unter **Settings → Pages** wähle **Deploy from a branch → main → /(root)** und speichere.
-5. Öffne `https://dragonkeks.github.io/showstudio/` (falls dein Repo exakt `showstudio` heißt).
-6. Wähle zunächst **„Lokal testen“**. Öffne auf demselben Mac die TV-Ansicht in einem zweiten Tab. So kannst du den Builder und das Regiepult in Ruhe testen.
+Das Drehrad in Beta 1.1 ist eine **vereinfachte Kategorien-Auswahl**, noch keine vollständig animierte Übernahme des alten Málaga-Drehrads. Die Teamauslosung orientiert sich am eingegebenen Teilnehmernamen und ist keine fälschungssichere Identitätsprüfung.
 
-Zum Import eines exportierten **Spielstands** nutze ebenfalls „JSON importieren“. Er wird unter **Spielstände** angelegt und lässt sich danach fortsetzen.
+**Ein endgültiger Pool mit 1.000 redaktionell geprüften Finalfragen ist noch nicht enthalten.** Die Datei `finalfragen-BEISPIEL.json` enthält **28 bekannte Testfragen**, nicht den späteren geheimen Fragenbestand. Für einen qualitativen 1.000er-Pool müssen wir zuerst das gewünschte Fragemuster/Kategorienniveau festlegen und Antworten verifizieren.
 
-Die lokale Show-Bibliothek liegt in deinem **Browser** (localStorage). Browserdaten löschen oder eine andere URL benutzen kann sie löschen bzw. unzugänglich machen. Exportiere wichtige Show-Vorlagen regelmäßig als JSON.
+**Keine absolute Geheimhaltung in einer Offline-/Browser-App:** Wer den Fragenpool selbst besitzt, importiert oder Zugriff auf den Rechner und dessen Browserdaten hat, kann ihn technisch lesen. SHOWSTUDIO zeigt die Lösung im normalen Finale-Bildschirm zwar nicht vorzeitig, stellt aber keine kryptographische Abschottung gegen den eigenen Betreiber dar. Der Vorteil: keine laufenden KI- oder Serverkosten für den Fragenpool. Lade deine **privaten** Fragenbank-Dateien **nicht** auf GitHub hoch. Auch beim Start einer Online-Show liegen die für die Sitzung ausgewählten Fragen in den nur für den angemeldeten Moderator lesbaren Firebase-Privatdaten.
 
-## Vorhandene Málaga-Fragen übernehmen
+Eine Live-Show mit mehreren echten Geräten, Cloud-Regeln und realen Netzwerkverzögerungen ist noch nicht abschließend getestet. Für den Test zunächst lokal starten. Wenn die Seite ohne Firebase läuft, kann sie nur Tabs desselben Browsers synchronisieren.
 
-1. Öffne die bisherige Málaga-App und gehe zu **Einstellungen → Spielstand als JSON herunterladen**.
-2. Öffne SHOWSTUDIO → **Übersicht** oder **Einstellungen → JSON importieren**.
-3. Wähle die Málaga-Sicherung aus. SHOWSTUDIO erstellt die neue Vorlage **„MÁLAGA GAMES · Import“**.
-4. Die grundlegenden Fragepools für die Auslosung sowie Spiele 1, 2, 3, 5, 8 und Finale werden übernommen, sofern sie in der Datei enthalten sind. Spezielle Alt-Spielregeln müssen im neuen Builder geprüft und angepasst werden.
+## Aktualisierung von Beta 1.0 auf 1.1
 
-Der Import verändert **keine Daten** deiner alten Firebase-Datenbank.
+1. **Vorher:** Öffne deine derzeitige Beta 1.0 und exportiere unter „Einstellungen“ deine vorhandenen Shows als JSON-Datei. Insbesondere wenn du in einer Show mehr als vier Parteien angelegt hast: Beta 1.1 lässt nur vier zu; die überzähligen Parteien werden bei der Umstellung nicht in die aktuelle Vorlage übernommen. Bewahre unbedingt den alten Export auf.
+2. Lade die ZIP-Datei herunter und entpacke sie.
+3. Gehe in dein bestehendes GitHub-Repository `showstudio` (nicht `malaga-games`) und ersetze `index.html`, `styles.css`, `app.js`, `model.js` und die übrigen Dateien durch die Dateien aus dieser ZIP-Datei. Am einfachsten über **Add file → Upload files**; bei gleichen Namen lässt GitHub einen Ersatz bestätigen.
+4. Warte, bis GitHub Pages die neue Version veröffentlicht hat, und aktualisiere deine Seite. Die Shows bleiben im selben Browser unter derselben Adresse gespeichert.
+5. **Teste zuerst „Lokal testen“**, möglichst mit Regie und TV in zwei verschiedenen Browser-Tabs. Anschließend gegebenenfalls eine separate Firebase-Live-Show mit Testgeräten ausprobieren.
 
-## Optional: Firebase-Live-Funktionen (Laptop, Fernseher, Handys)
+`firebase-config.js` ist bewusst eine **leere Beispielkonfiguration**. **Wenn du Firebase bereits in der bisherigen Beta konfiguriert hast, bewahre deine funktionierende `firebase-config.js` auf und überschreibe sie nicht blind mit dieser Datei.** Die in Beta 1.0 bereitgestellte Regelergänzung `firebase-rules-ADDITION.json` bleibt für die hier verwendeten Live-Pfade grundsätzlich unverändert. Auch hier gilt: Vorhandene Málaga-Regeln nicht überschreiben.
 
-Die vorhandene MÁLAGA-GAMES-Anwendung nutzt bereits Firebase. Die neue App nutzt **einen eigenen Datenbankpfad** `showstudioV1/` und berührt `rooms/` nicht.
+## Der kostenlose Finalfragenpool
 
-1. In `firebase-config.js` trägst du die fünf Werte deiner Firebase-Web-App ein: `apiKey`, `authDomain`, `databaseURL`, `projectId`, `appId`. **Niemals** ein Passwort oder einen Service-Account-Schlüssel dort eintragen.
-2. Aktiviere in Firebase Authentication die Methoden **Anonym** und **E-Mail/Passwort** (falls noch nicht aktiv).
-3. **Sehr wichtig:** Öffne deine bisherigen **Realtime Database → Regeln**. Sicher die bestehenden Regeln zuerst lokal. Ergänze **innerhalb des vorhandenen `"rules"`-Objekts** die Eigenschaft `"showstudioV1"` aus der Datei `firebase-rules-ADDITION.json`. **Nicht die gesamte Regeldatei durch diesen Ausschnitt ersetzen**, sonst könnte die alte Málaga-App nicht mehr funktionieren.
-4. Prüfe das JSON und veröffentliche die zusammengeführten Regeln. Eine schematische Darstellung (nur Illustration, niemals als Ersatz für echte Regeln verwenden):
+1. SHOWSTUDIO → **Einstellungen → Finalfragenpool**.
+2. `finalfragen-BEISPIEL.json` importieren (oder später deine eigene 1.000-Fragen-Datei). Die importierten Fragen werden **nur lokal in diesem Browser** gespeichert; sie werden nicht durch das Hochladen des Programms auf GitHub veröffentlicht.
+3. Show-Builder → **Spiele** → das gewünschte Finalspiel → **Geheimer Finalfragenpool = Ja**. Optional Anzahl und zugelassene Kategorien festlegen. Für gemeinsame schriftliche Antworten den Antwortmodus „Handy-Eingabe“ verwenden.
+4. Starte die Show und dann das betreffende Finalspiel. Fragen werden jetzt aus dem lokalen Pool gezogen. Die Moderator-Lösung bleibt im Regiepult verborgen, bis die Regie „Lösung aufdecken“ drückt.
+5. Falls der Moderator im Finale mitantwortet, nutzt er das gesonderte Feld „Moderator als Finalgegner“. Er bleibt trotzdem **außerhalb** der regulären Teilnehmerliste.
+6. Du kannst später eine **erweiterte JSON-Datei importieren**. Fragen mit demselben Fragetext werden zusammengeführt, neue ergänzt. Ein normaler Export der Shows enthält den privaten Vollpool nicht.
+
+Einträge im JSON-Array:
 
 ```json
-{
-  "rules": {
-    "rooms": { "...": "hier deine unveränderten alten Regeln" },
-    "showstudioV1": { "...": "hier den Inhalt aus firebase-rules-ADDITION.json einsetzen" }
-  }
-}
+[
+  {"id":"frage-001","category":"Geografie","text":"Welches Land hat die Hauptstadt Ljubljana?","answer":"Slowenien"},
+  {"id":"frage-002","category":"Naturwissenschaften","text":"Welches Element hat das Symbol Au?","answer":"Gold"}
+]
 ```
 
-5. Lade die geänderte `firebase-config.js` über GitHub hoch; GitHub Pages veröffentlicht sie automatisch.
-6. In SHOWSTUDIO → **Show starten → Online starten** mit deinem bestehenden **E-Mail/Passwort-Moderatorzugang** anmelden.
-7. In der Regie **TV öffnen** und den **Handy-Link** testen. Spieler öffnen die Handyansicht auf ihren eigenen Geräten und werden anonym bei Firebase angemeldet.
+Das Beispiel ist absichtlich öffentlich und enthält Fragen, die man leicht kennen kann. Für das tatsächlich überraschende Finale sollte später ein eigens zusammengestellter, redaktionell geprüfter Pool verwendet werden.
 
-**Sicherheitshinweis:** Die mitgelieferten Regeln sind eine Ausgangsbasis für private, kleine Shows. Teste sie in der Firebase-Regel-Simulation vor einer öffentlichen Veranstaltung. Gib niemals `".read":true` oder `".write":true` auf Datenbank-Wurzelebene frei. Gehe insbesondere mit Geheimfragen und Medienrechten vorsichtig um. Der öffentlichen TV-Datenstruktur werden nur die **aktuelle Frage** und die **erst aufgedeckte Lösung** mitgeteilt. Die vollständige Show liegt separat in privaten Moderatordaten.
+## Tipps für die neue Regie
 
-**Kosten:** Je nach Umfang und Firebase-Tarif können Nutzungskosten entstehen. Für den lokalen Modus wird Firebase nicht benötigt.
+- Beim Start des Spiels sehen die Teilnehmenden zunächst noch **keine** Frage. Der Moderator liest Frage und ggf. normale Lösung im Regiepult und klickt erst dann **„Frage auf TV freigeben“**.
+- Je nach eingestellter Spielregel öffnen sich anschließend Eingaben/Buzzer automatisch oder erst nach manuellem Regie-Befehl. Die Buzzersperre kann automatisch auslaufen.
+- Falls die Spielregel „Timer automatisch“ lautet, beginnt der Countdown beim Freigeben. Mit „Timer starten“ bzw. „Timer stoppen“ lässt sich die Runde auch manuell steuern. Bei Ablauf werden die Handyeingaben und Buzzer geschlossen.
+- Eine „Entscheidungs-Schätzfrage“ vergleicht nur die führenden Parteien, die aktuell denselben Punktestand haben. Ein erneuter identischer Abstand muss mit einer weiteren Schätzfrage entschieden werden.
+- Münzen und Punkte sind **unabhängige** Werte. Der Modus „Nur Spielsiege“ überträgt einzelne Fragepunkte nicht in die Gesamtwertung.
+- **Daten sichern:** Browserdaten können gelöscht werden. Vorlagen als JSON exportieren und separate Finalfragenpools außerhalb des Browsers aufbewahren.
 
-## Bedienung während einer Show
-
-- **Lobby:** „Show beginnen“ startet das ausgewählte Spiel.
-- **Fragen:** „Nächste Frage“ veröffentlicht die nächste Frage. „Lösung aufdecken“ zeigt die hinterlegte Lösung auf dem TV.
-- **Handy-Buzzer:** „Buzzer öffnen“ aktiviert den Buzzer (bei passenden Antwortmodi). Der erste Eingangsimpuls gewinnt; der Moderator kann zurücksetzen.
-- **Handy-Antworten:** „Eingaben öffnen“ aktiviert Text oder Antwortauswahl. „Auf TV zeigen“ erlaubt die Einblendung einzelner Eingaben, wenn im Builder aktiviert.
-- **Wertung:** „Richtig“, „Falsch“, „+ Punkt“, „− Punkt“, „Münze“ – oder den Spielgewinn für ein Team vergeben. Beim Modus „Siegbonus“ zählen Spielpunkte nur für die laufende Runde.
-- **Schätzspiel:** richtigen Wert und Schätzungen eintragen; der kleinsten Abweichung werden die konfigurierten Antwortpunkte zugewiesen.
-- **Sammelkarten:** Kategorien für Teams abhaken; Sieg am Ende durch den Moderator bestätigen.
-- **Risiko:** Teams erhalten ein separates Einsatzkonto aus ihren Gesamtpunkten plus Bonus. Alle Einsatzpunkte auf A–D verteilen und auflösen; die Gesamtwertung wird **nur durch den Kategoriesieg** verändert, sofern der passende Wertungsmodus eingestellt ist.
-- **Rückgängig:** nimmt den letzten gespeicherten Moderator-Schritt zurück (nicht automatisch externe, bereits abgeschickte Handy-Antworten).
-
-## Projektdateien
+## Dateien
 
 | Datei | Zweck |
 |---|---|
-| `index.html` | Einstiegspunkt für GitHub Pages |
-| `styles.css` | responsives Studio-Design, TV und Handy |
-| `app.js` | Oberflächen und Spielabläufe |
-| `model.js` | Show-Vorlagen, Spielmodule, Datenmodelle, Altimport |
-| `sync.js` | lokaler Sync oder optionale Firebase-Verbindung |
-| `firebase-config.js` | **optionale** öffentliche Firebase-Webkonfiguration |
-| `firebase-rules-ADDITION.json` | **nur zum Zusammenführen** mit deinen bestehenden Regeln |
-| `favicon.svg` | eigenes SHOWSTUDIO-Symbol |
+| `index.html` | Einstiegspunkt / GitHub Pages |
+| `styles.css` | Oberfläche, TV-Übergänge, Handy-Buzzer |
+| `app.js` | UI, Show-Builder, Regie, Fragefreigabe, Timer, Auslosung, Finale-Pool |
+| `model.js` | Grundregeln, Migration, Showdaten, öffentliches Fragenmodell |
+| `sync.js` | Lokale und optionale Firebase-Synchronisation (unverändert) |
+| `firebase-config.js` | Optionale Firebase-Webkonfiguration – **vorherige eigene Werte erhalten** |
+| `firebase-rules-ADDITION.json` | Nur Ergänzungsbeispiel; nicht die komplette bestehende Regeldatei ersetzen |
+| `finalfragen-BEISPIEL.json` | 28 öffentlich bekannte, austauschbare Fragen zum Testen |
+| `favicon.svg` | App-Logo |
+| `UPDATE-NOTES.md` | Kurzer Versionsvergleich |
 
-## Technische Checks
+## Tests und Hinweise
 
-Alle modularen Dateien bestehen den JavaScript-Syntaxcheck. Zusätzliche Tests prüfen Show-Erstellung, öffentliches Ausblenden geheimer Antworten, den MÁLAGA-V4-Fragenimport, die Bildschirmsteuerung und die lokale Synchronisierung zwischen zwei Ansichten. **Ein vollständiger Live-Test mit echten Mobilgeräten, Browsermedien und Firebase wurde hier nicht durchgeführt**. Bitte zuerst im lokalen Modus testen und anschließend mit zwei Testgeräten die Cloud-Funktionen durchspielen.
+Die JavaScript-Module wurden mit `node --check` auf Syntax geprüft. Ein isolierter automatisierter Test prüft das Datenmodell, die Migration, die Trennung zwischen Regie und TV, eine zufällige Teamauslosung, die Fragefreigabe, Timerinitialisierung, die geheime Fragerunde und die Punkte-/Münzkonten. Der Browser in dieser Arbeitsumgebung blockiert lokale Testseiten, daher konnte kein vollständiger echter Browsertest durchgeführt werden. **Vor einem Showabend unbedingt mit eigener GitHub-Pages-Instanz und mehreren Geräten testen.**
 
----
-
-*SHOWSTUDIO Beta 1 – ein eigenständiges Gameshow-Baukasten-Projekt. Keine offizielle Verbindung zu Fernsehproduktionen oder deren Marken.*
+*SHOWSTUDIO ist ein privates, eigenständiges Fanprojekt. Es besteht keine offizielle Verbindung zu den erwähnten Fernsehshows oder deren Marken.*
